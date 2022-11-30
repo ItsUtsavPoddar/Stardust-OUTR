@@ -1,0 +1,11 @@
+.medicine{
+    margin: 4rem auto;
+    text-align: center;
+}
+
+.hospital-slip-info{
+    text-align: left;
+    padding: 1rem;
+    margin: auto;
+    width: 80%;
+}

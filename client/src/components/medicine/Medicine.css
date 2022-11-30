@@ -1,0 +1,7 @@
+.medicine-center .dropdown-toggle, .medicine-center .dropdown-menu{
+    width: 80%;
+}
+
+.medicine-center{
+    margin: 1rem;
+}

@@ -1,0 +1,56 @@
+.card{
+    width: 70%;
+    min-height: 10rem;
+    margin: auto;
+}
+
+.card-body.slots{
+    margin-left: 0;
+}
+
+.slots .btn{
+    margin: 0.5rem;
+    padding: 1rem;
+}
+
+.slots .btn:hover{
+    background-color: rgb(202, 202, 202);
+}
+
+.book-slot{
+    display: inline-block;
+    text-align: right;
+}
+
+.book-slot .btn{
+    margin: 0.5rem 4rem;
+}
+
+.slots .booked{
+    background-color: rgb(162, 162, 162)
+}
+
+.slots .float-left{
+    text-align: left;
+}
+
+@media (max-aspect-ratio: 9/10) {
+
+    .book-slot{
+        display: inline-block;
+        text-align: center;
+    }
+    
+    .book-slot .btn{
+        margin: 0.5rem auto;
+    }
+
+    .slots .btn{
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .card-body.slots{
+        text-align: center;
+    }
+}
