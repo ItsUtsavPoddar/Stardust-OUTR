@@ -18,6 +18,7 @@ app.use('/api/dev/doctor', require('./routes/dev/doctor'));
 app.use('/api/dev/hospital', require('./routes/dev/hospital'));
 app.use('/api/dev/medicine', require('./routes/dev/medicine'));
 app.use('/api/dev/medicinecenter', require('./routes/dev/medicinecenter'));
+app.use('/api/dev/shift', require('./routes/dev/shift'));
 
 app.listen(port, ()=>{
     console.log("Server started at port: "+port);
