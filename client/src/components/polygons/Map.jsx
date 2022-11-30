@@ -1,7 +1,7 @@
 
 import React from 'react'
 import './Map.css'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 
@@ -28,28 +28,33 @@ const Map = () => {
   let hospital = [{x: 20.505, y: 85.10}, {x: 21.0, y: 86.0}]
   let pharmacy = [{x: 19.505, y: 85.10}, {x: 21.0, y: 85.0}]
 
-  
+  const redOptions = { color: 'red' }
+
 
   return (
     <>
     <div className='map-c'>
     <div className='map d-flex'>
 
-    <MapContainer style={{ width: "60rem", height: "30rem", display: "inline-block", margin: "auto", borderRadius: "10px"}} center={[20.5904217383687, 85.86253045523507]} zoom={8} scrollWheelZoom={true} >
+    <MapContainer style={{ width: "60rem", height: "30rem", display: "inline-block", margin: "auto", borderRadius: "10px"}} center={[20.5904217383687, 85.86253045523507]} zoom={10} scrollWheelZoom={true} >
 
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
   />
-
   
   {hospital.map((item)=>{
     return (
+        <>
+
+    <Circle center={[item.x, item.y]} pathOptions={redOptions} radius={20000} />
+
     <Marker position={[item.x, item.y]} icon= {hospitalIcon}>
       <Popup>
         Laude Ka Hospital <br />
       </Popup>
-    </Marker>)
+    </Marker>
+    </>)
   })}
 
   {pharmacy.map((item)=>{
@@ -60,6 +65,7 @@ const Map = () => {
       </Popup>
     </Marker>)
   })}
+
  
 </MapContainer>
     </div>

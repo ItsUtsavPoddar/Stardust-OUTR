@@ -1,5 +1,5 @@
 import React from 'react'
-import Map from '../components/heatmap/Map'
+import Map from '../components/polygons/Map'
 
 const Patient = () => {
   return (
