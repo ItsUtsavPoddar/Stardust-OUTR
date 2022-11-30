@@ -26,7 +26,7 @@ export default function Nav() {
                   />
                 </Link>
                 <div className="-mr-2 flex items-center md:hidden">
-                  <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-slate-500 hover:text-slate-400 hover:bg-slate-600 focus:outline-none">
+                  <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-neutral-800 hover:text-slate-400 hover:bg-slate-600 focus:outline-none">
                     <span className="sr-only">Open main menu</span>
                     <Icon
                       icon={navigation24Regular}
@@ -44,8 +44,8 @@ export default function Nav() {
                   to={item.to}
                   className={({ isActive }) =>
                     isActive
-                      ? "font-medium text-secondary  hover:text-secondary"
-                      : "font-medium text-slate-300 hover:text-secondary"
+                      ? "font-medium text-neutral-800 hover:text-secondary"
+                      : "font-medium text-neutral-600 hover:text-secondary"
                   }
                 >
                   {item.name}

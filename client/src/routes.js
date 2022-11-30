@@ -9,6 +9,7 @@ import Error from "./pages/404";
 import Patient from "./pages/Patient";
 import AlertState from "./context/alerts/AlertState";
 import HospitalState from "./context/hospitals/HospitalState";
+import Analytical from "./pages/Analytical";
 
 const AppRouter = () => {
   return (
@@ -18,8 +19,8 @@ const AppRouter = () => {
       <Router>
         <Routes>
           <Route path="/" exact element={Home} />
-          <Route path="/book" exact element={Book} />
           <Route path="/patient" exact element={Patient} />
+          <Route path="/analytical" exact element={Analytical} />
           <Route path="/about" exact element={About} />
           <Route path="/contact" exact element={Contact} />
           <Route path="" element={Error} />
