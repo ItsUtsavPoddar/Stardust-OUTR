@@ -16,6 +16,7 @@ app.use(express.json());
 // Avialable Routes
 // app.use('/api/auth', require('./routes/public/auth'));
 app.use('/api/public/hospitals', require('./routes/public/hospitals'));
+app.use('/api/public/doctors', require('./routes/public/doctors'));
 //app.use('/api/events', require('./routes/events'));
 
 app.listen(port, ()=>{
