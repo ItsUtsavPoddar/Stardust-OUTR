@@ -1,5 +1,5 @@
 import React from 'react'
-import Map from '../components/heatmap/Map'
+import Map from '../components/map/Map'
 import Slots from '../components/slots/Slots';
 import MedicineSlip from '../components/medicineSlip/MedicineSlip';
 import HospitalBookingSlip from '../components/hospitalBookingSlip/HospitalBookingSlip';

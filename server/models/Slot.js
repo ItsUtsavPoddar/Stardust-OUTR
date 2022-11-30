@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 
 
 const slotSchema = new mongoose.Schema({
-    Doctor: {
+    patient: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
+    doctor: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'doctor'
     },

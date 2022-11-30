@@ -5,10 +5,14 @@ import NotFound from "./pages/404";
 import ContactForm from "./pages/Contact";
 import Base from "./layouts/Base";
 import Patient from "./pages/Patient";
+import AlertState from "./context/alerts/AlertState";
+import HospitalState from "./context/hospitals/HospitalState";
 
 function App() {
   return (
     <div className="">
+      <AlertState>
+      <HospitalState>
       <BrowserRouter>
         <Base>
           <Routes>
@@ -20,6 +24,8 @@ function App() {
           </Routes>
         </Base>
       </BrowserRouter>
+      </HospitalState>
+      </AlertState>
     </div>
   );
 }

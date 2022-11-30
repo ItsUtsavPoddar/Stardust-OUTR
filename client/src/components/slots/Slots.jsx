@@ -28,7 +28,9 @@ const Slots = () => {
         <button type="button" className="btn btn-light btn-sm booked" disabled>3PM-3:15PM</button>
         </div>
         <div className="book-slot">
-        <button type="button" className="btn btn-success btn-lg float-left">Book Slot</button>
+        <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+          Book Slot
+        </button>
         </div>
       </div>
       

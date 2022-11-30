@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Map.css'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import HospitalContext from '../../context/hospitals/hospitalContext';
 
 let hospitalIcon = L.icon({
     iconUrl: "https://www.shareicon.net/data/512x512/2016/08/04/806609_medical_512x512.png",
@@ -22,8 +23,21 @@ let pharmaIcon = L.icon ({
 
 const Map = () => {
 
-  let hospital = [{x: 20.505, y: 85.10}, {x: 21.0, y: 86.0}]
   let pharmacy = [{x: 19.505, y: 85.10}, {x: 21.0, y: 85.0}]
+
+  const contextHospital = useContext(HospitalContext);
+  const { fetchHospitals } = contextHospital;
+
+  // State for hospitals
+  const [hospital, updateHospital] = useState([])
+
+  useEffect( ()=>{
+    async function gethosp(){
+      let hosp =  await fetchHospitals();
+      updateHospital(hosp);
+    }
+    gethosp();
+  },[])
 
   
 
@@ -32,22 +46,23 @@ const Map = () => {
     <div className='map-c'>
     <div className='map d-flex'>
 
-    <MapContainer style={{ width: "60rem", height: "30rem", display: "inline-block", margin: "auto", borderRadius: "10px"}} center={[20.5904217383687, 85.86253045523507]} zoom={8} scrollWheelZoom={true} >
+    <MapContainer style={{ width: "60rem", height: "30rem", display: "inline-block", margin: "auto", borderRadius: "10px"}} center={[20.283185644116134, 85.80019968614499]} zoom={13} scrollWheelZoom={true} >
 
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
   />
 
-  
+
   {hospital.map((item)=>{
     return (
-    <Marker position={[item.x, item.y]} icon= {hospitalIcon}>
+    <Marker position={item.location} icon= {hospitalIcon}>
       <Popup>
-        Laude Ka Hospital <br />
+        {item.name}<br />
       </Popup>
     </Marker>)
   })}
+
 
   {pharmacy.map((item)=>{
     return (

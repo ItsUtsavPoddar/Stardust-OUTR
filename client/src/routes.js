@@ -7,10 +7,14 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Error from "./pages/404";
 import Patient from "./pages/Patient";
+import AlertState from "./context/alerts/AlertState";
+import HospitalState from "./context/hospitals/HospitalState";
 
 const AppRouter = () => {
   return (
     <div className="App">
+      <AlertState>
+      <HospitalState>
       <Router>
         <Routes>
           <Route path="/" exact element={Home} />
@@ -21,6 +25,9 @@ const AppRouter = () => {
           <Route path="" element={Error} />
         </Routes>
       </Router>
+      </HospitalState>
+      </AlertState>
+      
     </div>
   );
 };

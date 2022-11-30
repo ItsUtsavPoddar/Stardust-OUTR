@@ -1,7 +1,13 @@
 .card{
-    width: 70%;
+    width: 65%;
     min-height: 10rem;
     margin: auto;
+    border: 2px solid rgb(233, 233, 233);
+    padding: 1rem;
+}
+
+.card-body{
+    margin: 1rem auto;
 }
 
 .card-body.slots{
@@ -9,8 +15,10 @@
 }
 
 .slots .btn{
-    margin: 0.5rem;
+    margin: 0.5rem 0.7rem;
     padding: 1rem;
+    border-radius: 8px;
+    background-color: rgb(232, 232, 232);
 }
 
 .slots .btn:hover{
@@ -18,7 +26,6 @@
 }
 
 .book-slot{
-    display: inline-block;
     text-align: right;
 }
 
@@ -27,7 +34,8 @@
 }
 
 .slots .booked{
-    background-color: rgb(162, 162, 162)
+    background-color: rgb(179, 179, 179);
+    border-radius: 8px;
 }
 
 .slots .float-left{
