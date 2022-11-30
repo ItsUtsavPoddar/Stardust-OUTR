@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // Avialable Routes
-app.use('/api/auth', require('./routes/auth'));
+// app.use('/api/auth', require('./routes/public/auth'));
 //app.use('/api/profile', require('./routes/profile'));
 //app.use('/api/events', require('./routes/events'));
 
