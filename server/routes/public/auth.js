@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const fetchuser = require('../../middleware/fetchuser');
 const otpverify = require('../../middleware/otpverify');
-const OTP = require('../models/OTP');
+const OTP = require('../../models/OTP');
 const {Auth} = require('two-step-auth');
 
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -30,7 +30,6 @@ router.route('/createuser')
 .post([
     body('name', 'Enter a valid name').isLength({min: 3}),
     body('password').isLength({min: 6}),
-    body('email').isLength({min: 6}),
     body('mobile_no').isLength({min: 10})
 ],otpverify, async (req, res)=>{
     let success = false;
@@ -44,25 +43,22 @@ router.route('/createuser')
 
     // Saving req data into a variable
     let data = req.body;
+    var email = req.email;
 
     try{
-    // Checking if user already exists
-    let user = await User.findOne({registration_id: data.registration_id});
-    if(user){
-        return res.status(400).json({success, error: 'Sorry, a user with this registration id already exists!'});
-    }
 
     // Checking if user already exists
-    user = await User.findOne({mobile_no: data.mobile_no});
+    let user = await User.findOne({mobile_no: data.mobile_no});
     if(user){
         return res.status(400).json({success, error: 'Sorry, a user with this mobile already exists!'});
     }
 
     // Checking if user already exists
-    user = await User.findOne({email: req.email});
+    user = await User.findOne({email: email});
     if(user){
         return res.status(400).json({success, error: 'Sorry, a user with this email already exists!'});
     }
+
 
     // Using bcrypt to generate a secured password
 
@@ -73,7 +69,7 @@ router.route('/createuser')
     user = await User.create({
         name: data.name,
         password: securedPassword,
-        email: req.email,
+        email: email,
         mobile_no: data.mobile_no
     })
 
@@ -106,7 +102,7 @@ router.route('/createuser')
 
 router.route('/login')
 .post([
-    body('registration_id', 'Enter a Registration ID').exists(),
+    body('email', 'Enter a Registration ID').exists(),
     body('password', 'Password cannot be blank').exists()
 ], async (req, res)=>{
     // Validating if employeeid/password/name is acceptable
@@ -117,11 +113,11 @@ router.route('/login')
         return res.status(400).json({errors: errors.array()});
     }
 
-    const {registration_id, password} = req.body;
+    const {email, password} = req.body;
     
 
     try{
-        let user = await User.findOne({registration_id}).exec();
+        let user = await User.findOne({email}).exec();
 
         if(!user){
             return res.status(400).json({success, error: "Please, login with correct credentials"});
@@ -161,7 +157,7 @@ router.route('/generateotp')
         }
 
         // Code to generate otp
-        const response = await Auth(data.email, "uPortal");
+        const response = await Auth(data.email, "Stardust");
         if (!response.success) return res.status(500).json({success: false, error: 'somthing went wrong!'});
         await OTP.create({
             email: response.mail,

@@ -14,9 +14,16 @@ app.use(cors());
 app.use(express.json());
 
 // Avialable Routes
-// app.use('/api/auth', require('./routes/public/auth'));
+
+/// These are the public routes
+app.use('/api/public/auth', require('./routes/public/auth'));
 app.use('/api/public/hospitals', require('./routes/public/hospitals'));
 app.use('/api/public/doctors', require('./routes/public/doctors'));
+
+/// These are the hospital routes
+app.use('/api/hospital/auth', require('./routes/hospital/auth'));
+app.use('/api/hospital/doctors', require('./routes/hospital/doctors'));
+
 //app.use('/api/events', require('./routes/events'));
 
 app.listen(port, ()=>{

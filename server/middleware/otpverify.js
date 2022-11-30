@@ -5,6 +5,8 @@ otpverify = async (req, res, next)=>{
 
     try{
         const email = req.header('email');
+        
+        /*
         const otp = req.header('otp');
 
         const login = await OTP.findOne({email}).exec();
@@ -17,6 +19,8 @@ otpverify = async (req, res, next)=>{
         if(otp != login.otp){
             return res.status(400).json({success: false, error: 'OTP verification failed!'});
         }
+        */
+        
         req.email = email;
         next();
     }catch(error){
