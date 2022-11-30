@@ -2,6 +2,8 @@ import React from "react";
 import siteConfig from "../site.config";
 import cancer from "../assets/images/Breast cancer research-pana.png"
 import diabetes from "../assets/images/Diabetes-amico.png"
+import india from "../assets/images/India Republic Day-pana.png"
+import heart from "../assets/images/Love is in the air-amico.png"
 const About = () => {
   return (
     <section className="pb-12">
@@ -53,10 +55,36 @@ const About = () => {
            
           </div>
         </div>
-        <div className="lg:w-1/3">
-          <img src={cancer}></img>
+        <div className="lg:w-1/5">
+          <img src={india}></img>
         </div>
       </div>
+
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row py-12 gap-3">
+      <div className="lg:w-1/4">
+          <img src={heart}></img>
+        </div>
+        
+        <div className="lg:w-2/3">
+          
+          <h4 className="text-4xl tracking-tight font-extrabold text-black text-left sm:text-3xl md:text-4xl">
+          Major NCDs and their risk factors
+          </h4>
+          <div className="space-y-8 text-lg leading-8 mt-8 text-black-200">
+            <p>
+            The major NCDs are cardiovascular diseases, cancers, chronic respiratory diseases and diabetes. Physical inactivity, unhealthy diets (diets low in fruit, vegetables, and whole grains, but high in salt and fat), tobacco use (smoking, secondhand smoke, and smokeless tobacco), and the harmful use of alcohol are the main behavioural risk factors for NCDs.
+
+They contribute to raised blood pressure (hypertension); raised blood sugar (diabetes); raised and abnormal blood lipids (dyslipidaemia); and obesity. Air pollution is also leading risk factor for NCDs in terms of both outdoor air pollution and household air pollution that mainly results from burning solid fuels in the home for cooking and heat.
+            </p>
+           
+          </div>
+        </div>
+        
+      </div>
+
+
+
     </section>
   );
 };
