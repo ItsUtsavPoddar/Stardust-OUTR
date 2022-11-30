@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section className="pb-12">
       <div className="flex items-center justify-center">
-        <img src='https://www.pngitem.com/pimgs/m/485-4852378_sample-logo-png-transparent-png.png' alt="us group members" />
+        <img src='https://i.postimg.cc/4yn8CCnb/20221130-143509.png' alt="us group members" />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row py-12 gap-3">
         <div className="lg:w-2/3">

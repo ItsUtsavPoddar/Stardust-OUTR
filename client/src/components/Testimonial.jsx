@@ -10,14 +10,14 @@ const Testimonial = () => {
         <div className="relative bg-pastel p-12 max-w-4xl mx-auto rounded-lg flex flex-col md:flex-row">
           <img
             className="h-32 w-32 rounded-full"
-            src="https://github.com/KejariwalAyush.png"
+            src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQUg4Xk19rc-zuZjC-hHjCu0hdGZP0y4loqYDTn4xrWsKXYEB2B"
             alt="Segun"
           />
           <div className="md:ml-8 ">
-            <h1 className="font-semibold text-2xl mt-2">Dr. Ayush Kejariwal</h1>
+            <h1 className="font-semibold text-2xl mt-2">Dr. Lisa</h1>
             <h4 className="text-sm text-slate-500">Head Surgeon, SUM Hospital</h4>
             <p className="py-4">
-            Every person should practice cannibalism.           
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio unde nemo, libero debitis ab fugiat non, accusantium cupiditate consectetur numquam, asperiores natus sunt. Iusto nam quam neque dolor ullam.           
             </p>
           </div>
           <img

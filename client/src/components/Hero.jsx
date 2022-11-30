@@ -16,7 +16,8 @@ export default function Hero() {
               By Government Of Odisha
             </p>
             <h1 className="text-4xl tracking-wide font-extrabold text-pastel sm:text-5xl md:text-6xl">
-              We at OUTR, <br /> We Explore{" "}
+              We at OUTR, <br /> The care you want
+
             </h1>
             <div className="max-w-xl mx-auto my-6 lg:my-8">
               <ContactInfo className="justify-center" />
@@ -30,8 +31,8 @@ export default function Hero() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Icon icon={githubIcon} className="h-6 w-6 mr-2" />
-                  Visit github
+                  <Icon /*icon={githubIcon}*/ className="h-6 w-6 mr-2" />
+                  Login
                 </a>
               </div>
             </div>

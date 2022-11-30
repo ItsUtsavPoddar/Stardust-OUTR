@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <section className="py-8 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center">
-        <img src='https://www.pngitem.com/pimgs/m/485-4852378_sample-logo-png-transparent-png.png' alt="stardust" />
+        <img src='https://i.postimg.cc/4yn8CCnb/20221130-143509.png' alt="stardust" style = {{width: "15rem"}} />
         <div className="text-center">
           <h3 className="text-slate-100 mb-8 px-8">
             By Government of Odisha

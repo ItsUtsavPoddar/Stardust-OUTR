@@ -21,7 +21,7 @@ export default function Nav() {
                   <span className="sr-only">Stardust</span>
                   <img
                     className="h-12 lg:h-16 w-auto"
-                    src='https://www.pngitem.com/pimgs/m/485-4852378_sample-logo-png-transparent-png.png'
+                    src='https://i.postimg.cc/4yn8CCnb/20221130-143509.png'
                     alt="Stardust OUTR"
                   />
                 </Link>

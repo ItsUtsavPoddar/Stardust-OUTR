@@ -21,17 +21,17 @@ export default function Statistics() {
     <section className="py-18 lg:py-24  bg-[#0c1b38]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:space-x-8 md:space-y-0 space-y-8 px-4 sm:px-6 lg:px-8">
         <StatsCard
-          name="Members"
+          name="Healthcare workers"
           value={`${stats.members}+`}
           icon={people20Regular}
         />
         <StatsCard
-          name="Projects"
+          name="Treated"
           value={`${stats.projects}+`}
           icon={apps20Regular}
         />
         <StatsCard
-          name="Commits"
+          name="Patients"
           value={`${stats.commits}K+`}
           icon={branchFork20Regular}
         />
