@@ -75,7 +75,7 @@ export default function Nav() {
                   <img
                     className="h-10 w-auto"
                     src='https://www.pngitem.com/pimgs/m/485-4852378_sample-logo-png-transparent-png.png'
-                    alt="Codex ITER"
+                    alt=""
                   />
                 </div>
                 <div className="-mr-2">

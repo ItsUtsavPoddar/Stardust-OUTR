@@ -6,6 +6,7 @@ import Map from "./pages/Map";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Error from "./pages/404";
+import Patient from "./pages/Patient";
 
 const AppRouter = () => {
   return (
@@ -14,7 +15,7 @@ const AppRouter = () => {
         <Routes>
           <Route path="/" exact element={Home} />
           <Route path="/book" exact element={Book} />
-          <Route path="/map" exact element={Map} />
+          <Route path="/patient" exact element={Patient} />
           <Route path="/about" exact element={About} />
           <Route path="/contact" exact element={Contact} />
           <Route path="" element={Error} />
