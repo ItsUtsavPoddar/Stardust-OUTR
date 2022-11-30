@@ -37,7 +37,7 @@ const Map = () => {
       updateHospital(hosp);
     }
     gethosp();
-  },[])
+  },[fetchHospitals])
 
   
 
