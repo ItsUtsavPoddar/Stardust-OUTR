@@ -58,7 +58,8 @@ router.route('/addhospital')
             hospitals: data.hospitals,
             beds: data.beds,
             medicinecenter: data.medicinecenter,
-            pincode: data.pincode
+            pincode: data.pincode,
+            size: data.size
         })
 
         success = true;
@@ -98,6 +99,7 @@ router.route('/updatehospital')
                 hospitals: data.hospitals,
                 beds: data.beds,
                 medicinecenter: data.medicinecenter,
+                size: data.size
             }
         )
 
