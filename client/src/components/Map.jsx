@@ -32,7 +32,7 @@ const Map = () => {
     <div className='map-c'>
     <div className='map d-flex'>
 
-    <MapContainer style={{ width: "60rem", height: "30rem", display: "inline-block", margin: "auto"}} center={[20.5904217383687, 85.86253045523507]} zoom={8} scrollWheelZoom={true} >
+    <MapContainer style={{ width: "60rem", height: "30rem", display: "inline-block", margin: "auto", borderRadius: "10px"}} center={[20.5904217383687, 85.86253045523507]} zoom={8} scrollWheelZoom={true} >
 
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
