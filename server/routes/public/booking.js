@@ -31,10 +31,15 @@ router.route("/").post(fetchuser, async (req, res) => {
     }
 
     // Check if doctor exists
-    let doctor = await Doctor.findById(data.doctor);
-    if (!doctor) {
-      return res.status(400).json({ success, info: "Doctor is invalid!" });
+    let hospital = await Hospital.findById(data.hospital);
+    if (!hospital) {
+      return res.status(400).json({ success, info: "Hospital is invalid!" });
     }
+
+    // find doctor 
+    let doctors = await Doctor.find({hospital: data.hospital});
+
+    var doc = Math.floor(Math.random() * Object.keys(doctors).length);
 
     
       // TODO - Book Slot
@@ -42,15 +47,15 @@ router.route("/").post(fetchuser, async (req, res) => {
       // Setting the slot
       let slot = await Slot.create({
         patient: req.user.id,
-        doctor: data.doctor,
+        doctor: doctors[doc],
         time: data.time,
       });
 
       // Actually setting the data and returning the slip
       let record = await Record.create({
         patient: req.user.id,
-        hospital: doctor.hospital,
-        doctor: data.doctor,
+        hospital: data.hospital,
+        doctor: doctors[doc],
         reason: data.reason,
         location: data.location,
         datetime: data.time,
@@ -61,7 +66,7 @@ router.route("/").post(fetchuser, async (req, res) => {
         name: patient.name,
         mobile_no: patient.mobile_no,
         slot: slot,
-        doctor: doctor.name,
+        doctor: doctors[doc].name,
       };
 
       success = true;

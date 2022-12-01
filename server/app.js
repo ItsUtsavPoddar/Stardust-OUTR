@@ -19,6 +19,7 @@ app.use(express.json());
 app.use('/api/public/auth', require('./routes/public/auth'));
 app.use('/api/public/hospitals', require('./routes/public/hospitals'));
 app.use('/api/public/doctors', require('./routes/public/doctors'));
+app.use('/api/public/book', require('./routes/public/booking'));
 
 /// These are the hospital routes
 app.use('/api/hospital/auth', require('./routes/hospital/auth'));

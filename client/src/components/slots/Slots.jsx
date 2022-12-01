@@ -6,6 +6,7 @@ const Slots = (props) => {
 
 
   const count = [0,1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const count2 = [[10, 11], [11, 12], [12, 13], [13, 14], [14, 15],[15, 16], [16, 17], [17, 18], [18, 19], [19, 20], [20, 21], [21, 22]];
 
   const contextHospital = useContext(HospitalContext);
   const { getSlots } = contextHospital;
@@ -13,7 +14,14 @@ const Slots = (props) => {
   const [bookedSlots, updateBookedSlots] = useState([]);
   const [allSlots, updateAllSlots] = useState([]);
 
+  const [selected, updateSelected] = useState([]);
+
   // this here is a list of all doctor shifts (slots to be shown);
+  var shifts = [];
+
+  const handleSelected = ()=>{
+    updateSelected();
+  }
 
 
 
@@ -22,26 +30,26 @@ const Slots = (props) => {
       let promise =  await getSlots(props.id);
       // this here is for all booked slots (slots not to be shown);
       updateBookedSlots(promise.slots);
+      shifts = [];
 
       promise.doctors.map((item, index)=>{
-        let t = {start: 0, end: 0}
+        let t = [0, 0]
         if(item.shift[0] === '638735d46d63a8bb5211fda9') {
-          t = {start: 0, end: 6};
-          updateAllSlots([...allSlots, t])
-          console.log(allSlots)
+          t = [0, 6];
+          shifts.push(t);
         }
         else if(item.shift[0] === '638735f66d63a8bb5211fdab') {
-          t = {start: 6, end: 12};
-          updateAllSlots([...allSlots, t])
+          t = [6, 12];
+          shifts.push(t);
         }
         else if(item.shift[0] === '638735ff6d63a8bb5211fdad') {
-          t = {start: 12, end: 18};
-          updateAllSlots([...allSlots, t])
+          t = [12, 18];
+          shifts.push(t);
         }
 
         else if(item.shift[0] === '638736076d63a8bb5211fdaf') {
-          t = {start: 12, end: 18};
-          updateAllSlots([...allSlots, t])
+          t = [18, 0];
+          shifts.push(t);
         }
         
       })
@@ -63,16 +71,20 @@ const Slots = (props) => {
             // Add a day
             date.setDate(date.getDate() + day)
 
-            return (<button type="button" className="btn btn-light btn-md">{date.toDateString()}</button>)
+            return (<button type="button" className="btn btn-light btn-md" onClick={()=>{
+              updateSelected({date: date, slot: ""});
+            }}>{date.toDateString()}</button>)
           })}
         
         </div>
         <hr class="dropdown-divider" />
         <div class="card-body slots">
 
-          {allSlots.map((item, index)=>{
+          {count2.map((item, index)=>{
             return (
-            <button type="button" className="btn btn-light btn-sm booked" disabled>2PM-3PM</button>
+            <button type="button" onClick={()=>{
+              updateSelected({date: selected.date, slot: item});
+            }} className="btn btn-light btn-sm">{item[0]+"-"+item[1]}</button>
             )
           })}
 
