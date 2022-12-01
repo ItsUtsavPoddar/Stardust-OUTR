@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import HospitalContext from '../../context/hospitals/hospitalContext';
+import Slots from '../slots/Slots';
 
 let hospitalIcon = L.icon({
     iconUrl: "https://www.shareicon.net/data/512x512/2016/08/04/806609_medical_512x512.png",
@@ -31,6 +32,9 @@ const Map = () => {
   // State for hospitals
   const [hospital, updateHospital] = useState([])
 
+  // State for selected Hospital
+  const [selectedHospital, updateSelectedHospital] = useState({hos: "", index: 0});
+
   useEffect( ()=>{
     async function gethosp(){
       let hosp =  await fetchHospitals();
@@ -39,14 +43,13 @@ const Map = () => {
     gethosp();
   },[fetchHospitals])
 
-  
 
   return (
     <>
     <div className='map-c'>
     <div className='map d-flex'>
 
-    <MapContainer style={{ width: "60rem", height: "30rem", display: "inline-block", margin: "auto", borderRadius: "10px"}} center={[20.283185644116134, 85.80019968614499]} zoom={13} scrollWheelZoom={true} >
+    <MapContainer style={{ width: "60rem", height: "30rem", display: "inline-block", margin: "auto", borderRadius: "10px"}} center={[20.283185644116134, 85.80019968614499]} zoom={13} scrollWheelZoom={false} >
 
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -54,9 +57,14 @@ const Map = () => {
   />
 
 
-  {hospital.map((item)=>{
+  {hospital.map((item, index)=>{
     return (
-    <Marker position={item.location} icon= {hospitalIcon}>
+    <Marker position={item.location} icon= {hospitalIcon} 
+    eventHandlers={{
+      click: (e) => {
+        updateSelectedHospital({hos: item._id, index: index});
+      },
+    }}>
       <Popup>
         {item.name}<br />
       </Popup>
@@ -78,6 +86,8 @@ const Map = () => {
     {/*<div className="heat-map"><Heat /></div>*/}
     
     </div>
+
+    {(selectedHospital.hos==="")?"":<Slots id={selectedHospital.hos} key={selectedHospital.index} />}
     </>
   )
 

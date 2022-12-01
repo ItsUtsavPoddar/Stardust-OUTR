@@ -36,7 +36,13 @@
 .slots .booked{
     background-color: rgb(179, 179, 179);
     border-radius: 8px;
+    color: rgb(112, 112, 112);
 }
+
+.slots .booked:hover{
+    background-color: rgb(179, 179, 179);
+}
+
 
 .slots .float-left{
     text-align: left;
@@ -45,7 +51,6 @@
 @media (max-aspect-ratio: 9/10) {
 
     .book-slot{
-        display: inline-block;
         text-align: center;
     }
     

@@ -36,8 +36,30 @@ const HospitalState = (props) => {
       }
   }
 
+  const getSlots = async (id)=>{
+    const response = await fetch(`${host}/api/public/hospitals/getslots`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({hospital: id})
+      });
+  
+      const json = await response.json();
+      if (json.success) {
+        //updateAlert('Person Deleted!', "success");
+        // setting hospitals as state
+        return json;
+
+      } else {
+        //updateAlert(json.error, "danger");
+        let arr = [];
+        return arr;
+      }
+  }
+
   return (
-    <HospitalContext.Provider value={{ hospitals, fetchHospitals}}>
+    <HospitalContext.Provider value={{ hospitals, fetchHospitals, getSlots}}>
       {props.children}
     </HospitalContext.Provider>
   );
