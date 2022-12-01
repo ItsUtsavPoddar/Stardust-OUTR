@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AlertContext from "../../context/alerts/alertContext";
+import { useNavigate } from "react-router-dom";
 
 
 function Copyright(props) {
@@ -31,9 +32,10 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const HandleClick = async (event) => {
-         // Context for alert
-  // This is for Alert Context
+
+    const host = process.env.REACT_APP_ADD_SERVER;
+
+     // This is for Alert Context
   const contextAlert = useContext(AlertContext);
   const {updateAlert} = contextAlert;
   const [hidden, setHidden] = useState("invisible");
@@ -42,7 +44,9 @@ export default function SignIn() {
   const [login, updateLogin] = useState({email: "", password: ""})
   const {email, password} = login;
 
+    const navigate = useNavigate();
 
+  const HandleClick = async (event) => {
     
     const response = await fetch(`${host}/api/public/auth/login`, {
       method: "POST",
@@ -67,8 +71,6 @@ export default function SignIn() {
             setHidden("invisible");
         }, 5000);
     }
-
-
   };
 
 
@@ -97,7 +99,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onClick={handleClick} noValidate sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -106,6 +108,8 @@ export default function SignIn() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              value={email}
+              onChange={handleChange}
               autoFocus
             />
             <TextField
@@ -116,6 +120,8 @@ export default function SignIn() {
               label="Password"
               type="password"
               id="password"
+              value={password}
+              onChange={handleChange}
               autoComplete="current-password"
             />
             <FormControlLabel
@@ -123,10 +129,11 @@ export default function SignIn() {
               label="Remember me"
             />
             <Button
-              type="submit"
+              type="button"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={HandleClick}
             >
               Sign In
             </Button>
