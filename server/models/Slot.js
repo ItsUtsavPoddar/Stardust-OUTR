@@ -10,6 +10,10 @@ const slotSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'doctor'
     },
+    hospital: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'hospital'
+    },
     time: {type: Date, required: true},
     date: {type: Date, default: Date.now}
 });

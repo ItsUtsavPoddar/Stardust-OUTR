@@ -41,13 +41,26 @@ router.route("/").post(fetchuser, async (req, res) => {
 
     var doc = Math.floor(Math.random() * Object.keys(doctors).length);
 
-    
+    let book = true;
+    // check if given time already exits
+    let check = await Slot.find({});
+    check.map((item)=>{
+      if(item.hospital == data.hospital && (new Date(data.time).toUTCString()==item.time.toUTCString())){
+        book = false;
+        return;
+      }
+    })
+
+    if(!book) return res.status(400).json({success, info: "No Slot Available"});
+
       // TODO - Book Slot
+
 
       // Setting the slot
       let slot = await Slot.create({
         patient: req.user.id,
         doctor: doctors[doc],
+        hospital: data.hospital,
         time: data.time,
       });
 

@@ -31,7 +31,7 @@ router.route('/createuser')
     body('name', 'Enter a valid name').isLength({min: 3}),
     body('password').isLength({min: 6}),
     body('mobile_no').isLength({min: 10})
-],otpverify, async (req, res)=>{
+], async (req, res)=>{
     let success = false;
     
     // Validating if name/email/password/reg_id/mobile_no is acceptable
@@ -43,7 +43,7 @@ router.route('/createuser')
 
     // Saving req data into a variable
     let data = req.body;
-    var email = req.email;
+    var email = data.email;
 
     try{
 

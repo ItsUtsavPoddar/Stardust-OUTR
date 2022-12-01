@@ -25,7 +25,7 @@ export default function Hero() {
             <div className="max-w-xl mx-auto my-6 lg:my-8">
               <ContactInfo className="justify-center" />
             </div>
-
+            {localStorage.getItem('auth-token') ?"":
             <div className="mt-12 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-lg shadow">
                 <Link 
@@ -39,7 +39,7 @@ export default function Hero() {
                   Login
                 </Link>
               </div>
-            </div>
+            </div>}
           </div>
           <div className="h-full lg:mt-0 flex items-center justify-center lg:w-1/2">
             <img className="max-w-2xl w-full h-full" src={banner} alt="" />

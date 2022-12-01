@@ -19,10 +19,6 @@ const Slots = (props) => {
   // this here is a list of all doctor shifts (slots to be shown);
   var shifts = [];
 
-  const handleSelected = ()=>{
-    updateSelected();
-  }
-
 
 
   useEffect(()=>{
@@ -30,6 +26,7 @@ const Slots = (props) => {
       let promise =  await getSlots(props.id);
       // this here is for all booked slots (slots not to be shown);
       updateBookedSlots(promise.slots);
+      console.log(promise);
       shifts = [];
 
       promise.doctors.map((item, index)=>{
