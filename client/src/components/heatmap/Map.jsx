@@ -75,6 +75,7 @@ const Map = () => {
   return (
     <>
     <div className='map-c'>
+    <h4 className="text-4xl tracking-tight font-extrabold text-black text-left sm:text-3xl md:text-4xl pl-40">Heatmap</h4>
     <div className='map d-flex'>
 
     <MapContainer style={{ width: "60rem", height: "30rem", display: "inline-block", margin: "auto", borderRadius: "10px"}} center={[20.3,85.83]} zoom={8} scrollWheelZoom={true} >

@@ -18,6 +18,7 @@ const Slots = (props) => {
 
   // this here is a list of all doctor shifts (slots to be shown);
   var shifts = [];
+  var bookedslots = [];
 
 
 
@@ -28,12 +29,15 @@ const Slots = (props) => {
       updateBookedSlots(promise.slots);
       console.log(promise);
       shifts = [];
+      bookedslots = [];
 
       promise.doctors.map((item, index)=>{
         let t = [0, 0]
         if(item.shift[0] === '638735d46d63a8bb5211fda9') {
           t = [0, 6];
           shifts.push(t);
+          updateAllSlots(shifts)
+          console.log(shifts)
         }
         else if(item.shift[0] === '638735f66d63a8bb5211fdab') {
           t = [6, 12];
@@ -48,13 +52,21 @@ const Slots = (props) => {
           t = [18, 0];
           shifts.push(t);
         }
-        
       })
+
+      promise.slots.map((item, index)=>{
+        item.map((i)=>{
+          bookedslots.push(i.time);
+          updateBookedSlots(bookedslots);
+        })
+        console.log(bookedslots)
+      })
+
       
     }
-    setInterval (()=>{
+
       getslots();
-    }, 3000)
+
   },[getSlots])
 
 

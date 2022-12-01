@@ -10,6 +10,7 @@ import HospitalState from "./context/hospitals/HospitalState";
 import Analytical from "./pages/Analytical"
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import Hospital from "./pages/Hospital";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/analytical" element={<Analytical />} />
+            <Route path="/hospital" element={<Hospital />} />
             <Route path="/about-us" element={<About />} />
             <Route path="/contact-us" element={<ContactForm />} />
             <Route path="*" element={<NotFound />} />

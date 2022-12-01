@@ -4,7 +4,6 @@ import { navigation } from "../data";
 import ContactInfo from "./ContactInfo";
 
 export default function Footer() {
-  const navigate = useNavigate();
   return (
     <section className="py-8 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center">
@@ -26,6 +25,7 @@ export default function Footer() {
             {!localStorage.getItem('auth-token') ?"":
             <Link
                 key={"Log Out"}
+                to="/"
                 onClick={() => {
                   localStorage.removeItem('auth-token');
                 }}
