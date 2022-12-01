@@ -24,6 +24,7 @@ app.use('/api/public/book', require('./routes/public/booking'));
 /// These are the hospital routes
 app.use('/api/hospital/auth', require('./routes/hospital/auth'));
 app.use('/api/hospital/doctors', require('./routes/hospital/doctors'));
+app.use('/api/hospital/patient', require('./routes/hospital/patient'));
 
 //app.use('/api/events', require('./routes/events'));
 
