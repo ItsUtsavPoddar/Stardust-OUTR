@@ -94,24 +94,6 @@ const Map = () => {
     url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
   />
 
-  
-  {hospital.map((item)=>{
-    return (
-    <Marker position={[item.x, item.y]} icon= {hospitalIcon}>
-      <Popup>
-        Laude Ka Hospital <br />
-      </Popup>
-    </Marker>)
-  })}
-
-  {pharmacy.map((item)=>{
-    return (
-    <Marker position={[item.x, item.y]} icon= {pharmaIcon}>
-      <Popup>
-        Laude Ka Hospital <br />
-      </Popup>
-    </Marker>)
-  })}
  
 </MapContainer>
     </div>

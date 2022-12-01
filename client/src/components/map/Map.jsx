@@ -76,7 +76,7 @@ const Map = () => {
     return (
     <Marker position={[item.x, item.y]} icon= {pharmaIcon}>
       <Popup>
-        Laude Ka Hospital <br />
+        Medicine Center <br />
       </Popup>
     </Marker>)
   })}

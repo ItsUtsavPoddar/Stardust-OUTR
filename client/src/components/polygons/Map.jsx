@@ -1,11 +1,12 @@
 
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import './Map.css'
 import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 
 import L from 'leaflet';
+import HospitalContext from '../../context/hospitals/hospitalContext';
 
 let hospitalIcon = L.icon({
     iconUrl: "https://www.shareicon.net/data/512x512/2016/08/04/806609_medical_512x512.png",
@@ -25,10 +26,25 @@ let pharmaIcon = L.icon ({
 
 const Map = () => {
 
-  let hospital = [{x: 20.505, y: 85.10}, {x: 21.0, y: 86.0}]
   let pharmacy = [{x: 19.505, y: 85.10}, {x: 21.0, y: 85.0}]
 
   const redOptions = { color: 'red' }
+  const greenOptions = { color: 'green' }
+  const blueOptions = { color: 'blue' }
+
+  const contextHospital = useContext(HospitalContext);
+  const { fetchHospitals } = contextHospital;
+
+  // State for hospitals
+  const [hospital, updateHospital] = useState([])
+
+  useEffect( ()=>{
+    async function gethosp(){
+      let hosp =  await fetchHospitals();
+      updateHospital(hosp);
+    }
+    gethosp();
+  },[fetchHospitals])
 
 
   return (
@@ -47,16 +63,17 @@ const Map = () => {
     return (
         <>
 
-    <Circle center={[item.x, item.y]} pathOptions={redOptions} radius={20000} />
+    <Circle center={item.location} pathOptions={item.size>300?greenOptions:redOptions} radius={item.size*10} />
 
-    <Marker position={[item.x, item.y]} icon= {hospitalIcon}>
+    <Marker position={item.location} icon= {hospitalIcon}>
       <Popup>
-        Laude Ka Hospital <br />
+      {item.name} <br />
       </Popup>
     </Marker>
     </>)
   })}
 
+{/*
   {pharmacy.map((item)=>{
     return (
     <Marker position={[item.x, item.y]} icon= {pharmaIcon}>
@@ -65,6 +82,7 @@ const Map = () => {
       </Popup>
     </Marker>)
   })}
+*/}
 
  
 </MapContainer>
