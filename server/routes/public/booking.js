@@ -36,17 +36,7 @@ router.route("/").post(fetchuser, async (req, res) => {
       return res.status(400).json({ success, info: "Doctor is invalid!" });
     }
 
-    // check if doctor is available for the given time slot
-    let shift = await Shift.findById(doctor.shift);
-
-    let startTime = shift.startTime.getUTCHours();
-    let endTime = shift.endTime.getUTCHours();
-    let slotTime = new Date(data.time).getHours();
-
-    if (
-      (slotTime >= startTime && endTime == 0) ||
-      (slotTime >= startTime && slotTime < endTime)
-    ) {
+    
       // TODO - Book Slot
 
       // Setting the slot
@@ -76,9 +66,6 @@ router.route("/").post(fetchuser, async (req, res) => {
 
       success = true;
       return res.json({ success });
-    } else {
-      return res.status(400).json({ success, info: "Slot not available!" });
-    }
   } catch (error) {
     console.log(error);
     res.json({ success: false, error: "Something Went Wrong!" });

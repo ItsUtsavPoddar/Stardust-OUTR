@@ -107,7 +107,6 @@ export default function SignIn() {
               id="email"
               label="Email Address"
               name="email"
-              autoComplete="email"
               value={email}
               onChange={handleChange}
               autoFocus
@@ -122,7 +121,6 @@ export default function SignIn() {
               id="password"
               value={password}
               onChange={handleChange}
-              autoComplete="current-password"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

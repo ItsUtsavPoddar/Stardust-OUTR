@@ -14,7 +14,6 @@ const Slots = (props) => {
   const [allSlots, updateAllSlots] = useState([]);
 
   // this here is a list of all doctor shifts (slots to be shown);
-  var shifts = [];
 
 
 
@@ -23,26 +22,26 @@ const Slots = (props) => {
       let promise =  await getSlots(props.id);
       // this here is for all booked slots (slots not to be shown);
       updateBookedSlots(promise.slots);
-      shifts = [];
 
       promise.doctors.map((item, index)=>{
-        let t = [0, 0]
+        let t = {start: 0, end: 0}
         if(item.shift[0] === '638735d46d63a8bb5211fda9') {
-          t = [0, 6];
-          shifts.push(t);
+          t = {start: 0, end: 6};
+          updateAllSlots([...allSlots, t])
+          console.log(allSlots)
         }
         else if(item.shift[0] === '638735f66d63a8bb5211fdab') {
-          t = [6, 12];
-          shifts.push(t);
+          t = {start: 6, end: 12};
+          updateAllSlots([...allSlots, t])
         }
         else if(item.shift[0] === '638735ff6d63a8bb5211fdad') {
-          t = [12, 18];
-          shifts.push(t);
+          t = {start: 12, end: 18};
+          updateAllSlots([...allSlots, t])
         }
 
         else if(item.shift[0] === '638736076d63a8bb5211fdaf') {
-          t = [18, 0];
-          shifts.push(t);
+          t = {start: 12, end: 18};
+          updateAllSlots([...allSlots, t])
         }
         
       })
@@ -71,7 +70,7 @@ const Slots = (props) => {
         <hr class="dropdown-divider" />
         <div class="card-body slots">
 
-          {shifts.map((item, index)=>{
+          {allSlots.map((item, index)=>{
             return (
             <button type="button" className="btn btn-light btn-sm booked" disabled>2PM-3PM</button>
             )

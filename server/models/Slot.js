@@ -6,9 +6,9 @@ const slotSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    doctor: {
+    hospital: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'doctor'
+        ref: 'hospital'
     },
     time: {type: Date, required: true},
     date: {type: Date, default: Date.now}
