@@ -6,70 +6,117 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis
 } from "recharts";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {
+  LineChart,
+  Line,
+  Legend,
+  Brush,
+} from 'recharts';
 
-const data = [
+const data1 = [
   {
-    subject: "vsfdenetdf",
-    A: 120,
-    B: 110,
-    fullMark: 150
+    name: 'June',
+    uv: 4000,
+    pv: 2400,
+    amt: 2400,
   },
   {
-    subject: "sdvsdv",
-    A: 98,
-    B: 130,
-    fullMark: 150
+    name: 'July',
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
   },
   {
-    subject: "sdvs",
-    A: 86,
-    B: 130,
-    fullMark: 150
+    name: 'August',
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
   },
   {
-    subject: "vdsv",
-    A: 99,
-    B: 100,
-    fullMark: 150
+    name: 'September',
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
   },
   {
-    subject: "dsc",
-    A: 85,
-    B: 90,
-    fullMark: 150
+    name: 'October',
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
   },
   {
-    subject: "cds",
-    A: 65,
-    B: 85,
-    fullMark: 150
-  }
+    name: 'November',
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: 'December',
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
 ];
 
 
 const Graph = () => {
   return (
-    <div className ="Graph1">
-      <RadarChart
-      cx={300}
-      cy={250}
-      outerRadius={150}
-      width={500}
-      height={500}
-      data={data}
-    >
-      <PolarGrid />
-      <PolarAngleAxis dataKey="subject" />
-      <PolarRadiusAxis />
-      <Radar
-        name="Mike"
-        dataKey="A"
-        stroke="#8884d8"
-        fill="#8884d8"
-        fillOpacity={0.6}
-      />
-    </RadarChart>
-    </div>
+  <>
+    <div>
+      <h5 className="text-3xl tracking-tight font-extrabold text-black text-left sm:text-2xl md:text-3xl pl-40 pb-10">
+      Demand for Metformin
+                </h5>
+    <div style={{ width: '100%', height: 300 }}>
+    <ResponsiveContainer>
+      <AreaChart
+        data={data1}
+        margin={{
+          top: 10,
+          right: 30,
+          left: 0,
+          bottom: 0,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+      </AreaChart>
+    </ResponsiveContainer>
+  </div>
+  </div>
+
+
+
+  <div className="pt-20">
+      <h5 className="text-3xl tracking-tight font-extrabold text-black text-left sm:text-2xl md:text-3xl pl-40 pb-10">
+      Demand for Metformin
+                </h5>
+    <div style={{ width: '100%', height: 300 }}>
+    <ResponsiveContainer>
+      <AreaChart
+        data={data1}
+        margin={{
+          top: 10,
+          right: 30,
+          left: 0,
+          bottom: 0,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+      </AreaChart>
+    </ResponsiveContainer>
+  </div>
+  </div>
+
+
+  </>
   )
 }
 
