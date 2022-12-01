@@ -77,7 +77,7 @@ const Map = () => {
     <div className='map-c'>
     <div className='map d-flex'>
 
-    <MapContainer style={{ width: "60rem", height: "30rem", display: "inline-block", margin: "auto", borderRadius: "10px"}} center={[12.96821717,77.75659494]} zoom={11} scrollWheelZoom={true} >
+    <MapContainer style={{ width: "60rem", height: "30rem", display: "inline-block", margin: "auto", borderRadius: "10px"}} center={[20.3,85.83]} zoom={8} scrollWheelZoom={true} >
 
     <HeatmapLayer
 
