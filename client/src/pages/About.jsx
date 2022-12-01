@@ -4,6 +4,8 @@ import cancer from "../assets/images/Breast cancer research-pana.png"
 import diabetes from "../assets/images/Diabetes-amico.png"
 import india from "../assets/images/India Republic Day-pana.png"
 import heart from "../assets/images/Love is in the air-amico.png"
+import checkup from "../assets/images/Online Doctor-rafiki.png"
+import stats from "../assets/images/Business analytics-amico.png"
 const About = () => {
   return (
     <section className="pb-12">
@@ -84,6 +86,58 @@ They contribute to raised blood pressure (hypertension); raised blood sugar (dia
       </div>
 
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row py-12 gap-3">
+        <div className="lg:w-2/3">
+          <h4 className="text-4xl tracking-tight font-extrabold text-black text-left sm:text-3xl md:text-4xl">
+            Book Slots
+          </h4>
+          <div className="space-y-8 text-lg leading-8 mt-8 text-black-200">
+            <p>
+            In our WebApp, Anyone can book a slot hassle-free and get checked up by Doctors for any Non-communicable Diseases for free of cost.
+
+            Given, everything will be Realtime (automated), its easier for the people to know about availabilty of slots.
+
+
+
+            <h4 className="text-4xl tracking-tight font-extrabold text-black text-left sm:text-3xl md:text-4xl pt-7 pb-8">
+            Get Meds
+          </h4>
+            After getting checked, If the doctor prescribes any meds, patients can get their 1st dose in person and follow-up doses from out Portal, which will get delivered to their desired Medicine Centre. 
+
+            The Meds will be part of govt. initiative as well.
+            </p>
+           
+          </div>
+        </div>
+        <div className="lg:w-1/3">
+          <img src={checkup}></img>
+        </div>
+      </div>
+
+
+
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row py-12 gap-3">
+      <div className="lg:w-1/4">
+          <img src={stats}></img>
+        </div>
+        
+        <div className="lg:w-2/3">
+          
+          <h4 className="text-4xl tracking-tight font-extrabold text-black text-left sm:text-3xl md:text-4xl">
+          Analytical Tool for Government
+          </h4>
+          <div className="space-y-8 text-lg leading-8 mt-8 text-black-200">
+            <p>
+            HeatMaps and Graphs can help govt in real time to map out the dynamics of public sufferinf from these diseases and thus allocate the resources accordingly.
+
+            Information about Diseases and their location can help Govt. to take actions quickly and have the aid force on stand.
+            </p>
+           
+          </div>
+        </div>
+        
+      </div>
 
     </section>
   );

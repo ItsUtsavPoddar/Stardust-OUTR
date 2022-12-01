@@ -15,10 +15,10 @@ export default function Hero() {
       <main className="pt-4 mx-auto max-w-7xl px-4 sm:px-6 md:pt-8 lg:pt-10 lg:px-8 xl:pt-14">
         <div className="flex flex-col-reverse lg:flex-row justify-between gap-8">
           <div className="text-center lg:text-left lg:w-1/2">
-            <p className="mb-3 text-base text-slate-400 sm:mb-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+            <p className="mb-3 text-base text-black sm:mb-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
               By Government Of Odisha
             </p>
-            <h1 className="text-4xl tracking-wide font-extrabold text-pastel sm:text-5xl md:text-6xl">
+            <h1 className="text-4xl tracking-wide font-extrabold text-black sm:text-5xl md:text-6xl">
               We at OUTR, <br /> The care you want
 
             </h1>

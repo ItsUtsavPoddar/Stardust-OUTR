@@ -13,7 +13,7 @@ export default function Footer() {
             By Government of Odisha
           </h3>
           <div className="block space-x-4 sm:space-x-8">
-            {navigation.map((item) => (
+            {navigation.map((item  ) => (
               <Link
                 key={item.name}
                 to={item.to}
@@ -22,6 +22,14 @@ export default function Footer() {
                 {item.name}
               </Link>
             ))}
+            
+            <Link
+                key={"Log Out"}
+                to={"/"}
+                className="font-medium text-slate-300 hover:text-secondary"
+              >
+                {"Log Out"}
+              </Link>
           </div>
         </div>
         <div>
