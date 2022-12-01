@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import './pid.css'
 
 const PatientID = () => {
     const host = process.env.REACT_APP_ADD_SERVER;
     const [search, updateSearch] = useState("");
     const [data, updateData] = useState({success: false, record: [], doctor: [], hospital: []});
-    const [hide, updateHide] = useState("invisible");
+    const [hide, updateHide] = useState(true);
     const [found, updateFound] = useState(true);
 
 
@@ -16,11 +17,8 @@ const PatientID = () => {
 
     const handleClick = async (event)=>{
 
-        updateHide("");
+        updateHide(false);
         updateFound(true)
-        setTimeout(()=>{
-            updateHide("invisible")
-        }, 300)
 
         const response = await fetch(`${host}/api/hospital/patient/getpatient`, {
             method: "POST",
@@ -34,8 +32,10 @@ const PatientID = () => {
           console.log(json)
           if (json.success) {
             updateData(json);
+            updateHide(true)
           } else {
             updateFound(false)
+            updateHide(true)
           }
 
     }
@@ -45,7 +45,7 @@ const PatientID = () => {
 
     <div>
       <h4 className="text-4xl tracking-tight font-extrabold text-black text-left sm:text-3xl md:text-4xl pl-20">
-        Get Patient Details
+        Get Patient Records
       </h4>
       <div className="flex justify-center">
         <div className="mb-3 xl:w-96 stretch">
@@ -85,11 +85,11 @@ const PatientID = () => {
           </div>
         </div>
       </div>
-      <img src="./loading.gif" className={hide} style={{width: "200px", margin: "auto"}}/>
-      {!found?<img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg?w=1480&t=st=1669885830~exp=1669886430~hmac=d6b53f01b30fb8c43c84899be1987a336ac5d5cea2a2f14f812507d8fcc06c82" style={{width: "400px", margin: "auto"}}/>:
+      {!hide?<img src="./loading.gif" style={{width: "200px", margin: "auto"}}/>:""}
+      {!found?<img src="404.png" style={{width: "400px", margin: "auto"}}/>:
       
 <div class="overflow-x-auto relative">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <table class="table-p text-sm text-left text-gray-500 dark:text-gray-400 m-auto">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="py-3 px-6">
@@ -111,16 +111,16 @@ const PatientID = () => {
             {data.record.map((item, index)=>{
                 return ( <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    "name"
+                    {data.doctor[index].name}
                 </th>
                 <td class="py-4 px-6">
-                    Sliver
+                    {data.hospital[index].name}
                 </td>
                 <td class="py-4 px-6">
-                    Laptop
+                    {item.datetime.toString().split("T")[0]}
                 </td>
                 <td class="py-4 px-6">
-                    $2999
+                    {item.datetime.toString().split("T")[1].split(".")[0]}
                 </td>
             </tr>)
             })}
