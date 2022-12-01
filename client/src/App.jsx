@@ -11,7 +11,7 @@ import Analytical from "./pages/Analytical"
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Hospital from "./pages/Hospital";
-
+import Profile from "./pages/Profile";
 function App() {
   return (
     <div className="">
@@ -22,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/patient" element={<Patient />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/analytical" element={<Analytical />} />

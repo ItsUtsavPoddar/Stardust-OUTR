@@ -11,7 +11,7 @@ import Analytical from "./pages/Analytical";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Hospital from "./pages/Hospital";
-
+import Profile from "./pages/Profile";
 const AppRouter = () => {
 
   // Login Route
@@ -26,6 +26,7 @@ const AppRouter = () => {
         <Routes>
           <Route path="/" exact element={Home} />
           <Route path="/patient" exact element={Patient} />
+          <Route path="/profile" exact element={Profile} />
           <Route path="/login" exact element={Login} />
           <Route path="/signup" exact element={SignUp} />
           <Route path="/analytical" exact element={Analytical} />
