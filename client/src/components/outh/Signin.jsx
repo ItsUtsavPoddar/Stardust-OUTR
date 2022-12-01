@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useContext } from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import AlertContext from "../../context/alerts/alertContext";
+
 
 function Copyright(props) {
   return (
@@ -29,13 +31,52 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+  const HandleClick = async (event) => {
+         // Context for alert
+  // This is for Alert Context
+  const contextAlert = useContext(AlertContext);
+  const {updateAlert} = contextAlert;
+  const [hidden, setHidden] = useState("invisible");
+
+
+  const [login, updateLogin] = useState({email: "", password: ""})
+  const {email, password} = login;
+
+
+    
+    const response = await fetch(`${host}/api/public/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email, password: password })
     });
+    const json = await response.json();
+    
+    if(json.success){
+        // Save auth-token
+        localStorage.setItem('auth-token', json.authtoken);
+        navigate("/");
+        updateAlert("Logged In Successfully!!", "success");
+    }
+    else {
+        updateLogin({email: "", password: ""})
+        setHidden("");
+        // updateAlert("Login Failed", "danger");
+        setTimeout(()=>{
+            setHidden("invisible");
+        }, 5000);
+    }
+
+
+  };
+
+
+  const handleChange = (event) => {
+    let name = event.target.name;
+    let value = event.target.value;
+
+    updateLogin({ ...login, [name]: value });
   };
 
   return (
@@ -56,7 +97,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onClick={handleClick} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
