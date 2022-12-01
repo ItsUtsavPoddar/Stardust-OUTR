@@ -5,6 +5,9 @@
 
 html {
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  background-color:  rgb(207, 227, 226);
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 @tailwind components;
