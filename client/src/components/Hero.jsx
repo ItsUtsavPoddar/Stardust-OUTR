@@ -5,6 +5,9 @@ import siteConfig from "../site.config";
 import banner from "../assets/images/banner.png";
 import { Icon } from "@iconify/react";
 import githubIcon from "@iconify/icons-cib/github";
+import { Link, NavLink } from "react-router-dom";
+import { navigation } from "../data";
+
 
 export default function Hero() {
   return (
@@ -25,15 +28,16 @@ export default function Hero() {
 
             <div className="mt-12 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-lg shadow">
-                <a
-                  href={siteConfig.contacts.github}
+                <Link 
+                  to = '/login'
+                  
                   className="w-full flex items-center justify-center px-6 py-2 border border-transparent text-base font-semibold rounded-lg text-slate-800 bg-secondary hover:scale-105 will-change-transform transition-transform md:py-3 md:text-lg md:px-8"
-                  target="_blank"
+                  // target="_blank"
                   rel="noreferrer"
                 >
                   <Icon /*icon={githubIcon}*/ className="h-6 w-6 mr-2" />
                   Login
-                </a>
+                </Link>
               </div>
             </div>
           </div>
