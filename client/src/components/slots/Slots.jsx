@@ -49,7 +49,7 @@ const Slots = (props) => {
     }
     setInterval (()=>{
       getslots();
-    }, 3000)
+    }, 10000)
   },[getSlots])
 
 

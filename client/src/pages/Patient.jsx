@@ -9,7 +9,6 @@ const Patient = () => {
   return (
     <div>
         <Map />
-        <Slots />
         <MedicineSlip />
         <HospitalBookingSlip />
         <Medicine />
