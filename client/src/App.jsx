@@ -8,6 +8,8 @@ import Patient from "./pages/Patient";
 import AlertState from "./context/alerts/AlertState";
 import HospitalState from "./context/hospitals/HospitalState";
 import Analytical from "./pages/Analytical"
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/patient" element={<Patient />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/analytical" element={<Analytical />} />
             <Route path="/about-us" element={<About />} />
             <Route path="/contact-us" element={<ContactForm />} />
